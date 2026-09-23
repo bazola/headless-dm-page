@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Full-screen views · Headless DM</title>
+<meta name="description" content="The five deep archives of the Headless DM dashboard: every moment, the group wall, every memory, a character's whole journey, and the chronicle reader.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 1.5 30.5 16 16 30.5 1.5 16Z' fill='none' stroke='%23d9a441' stroke-width='2'/%3E%3Cpath d='M16 9.5 18.2 13.8 22.5 16 18.2 18.2 16 22.5 13.8 18.2 9.5 16 13.8 13.8Z' fill='%23d9a441'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Spectral:ital,wght@0,400;0,500;1,400&display=swap">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+
+<nav class="nav">
+  <a class="nav-brand" href="index.html">
+    <svg width="24" height="24" viewBox="0 0 32 32" aria-hidden="true">
+      <path d="M16 1.5 30.5 16 16 30.5 1.5 16Z" fill="none" stroke="#d9a441" stroke-width="1.6"/>
+      <path d="M16 9.5 18.2 13.8 22.5 16 18.2 18.2 16 22.5 13.8 18.2 9.5 16 13.8 13.8Z" fill="#d9a441"/>
+    </svg>
+    Headless DM
+  </a>
+  <div class="nav-links">
+    <a href="index.html">Overview</a>
+    <a href="dashboard.html">Reading the dashboard</a>
+    <a href="panels.html">The ten panels</a>
+    <a href="views.html" class="on">Full-screen views</a>
+    <a href="results.html">Results</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">The deep end</div>
+    <h1>Full-screen views</h1>
+    <p class="lead">The side panels show you the top of each pile. Behind each one is the whole archive — tens of
+    thousands of rows, searchable, going back to the realm's first day. These five views are where the dashboard
+    stops summarising.</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <h2>What they have in common</h2>
+    <ul class="plain">
+      <li>All five fill the screen and close with <kbd>Esc</kbd> or the <b>×</b> in the corner.</li>
+      <li>All five have their own web address, so you can bookmark one or open it in a tab of its own with the
+      <b>Open in a new tab</b> button.</li>
+      <li>Lists load more as you scroll, with a <b>Show 120 more</b> button at the foot and a line telling you how
+      many are still below. They end with <i>That is all 12,433.</i> so you know you have reached the bottom.</li>
+      <li>Clicking a name closes the view and opens that character in the inspector.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap-wide">
+
+    <!-- FEELINGS -->
+    <article class="entry" id="feelings">
+      <div class="entry-head"><h3>Feelings in full</h3><span class="entry-tip">#moments · #overheard · #warmest · #coldest</span></div>
+      <p>Every opinion anyone has ever formed, and every conversation that was overheard forming it.</p>
+      <figure>
+        <img src="img/full-feelings.png" alt="The Feelings full-screen view on the Moments tab, showing 37,830 moments as a list of who warmed to or cooled on whom, each with a reason.">
+        <figcaption>Thirty-seven thousand moments, newest first. Each is a small judgement one character made about
+        another, with the reason that caused it.</figcaption>
+      </figure>
+      <p>Four tabs across the top:</p>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th>Tab</th><th>What it lists</th></tr></thead>
+          <tbody>
+            <tr><td>Moments</td><td>Every shift in feeling, ever, with its reason and how far it moved.</td></tr>
+            <tr><td>Overheard</td><td>Every conversation, as spoken, with the feelings it caused in whoever heard it.</td></tr>
+            <tr><td>Warmest</td><td>Every tie in the world, ranked from the strongest friendship down.</td></tr>
+            <tr><td>Coldest</td><td>The same list from the other end.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>The search box changes with the tab — on <b>Moments</b> it searches names and reasons, on <b>Overheard</b>
+      it searches names, places and anything that was said. Searching for a word someone used is often the fastest
+      way to find the conversation you half-remember.</p>
+    </article>
+
+    <!-- GROUPS -->
+    <article class="entry" id="groups">
+      <div class="entry-head"><h3>The group wall</h3><span class="entry-tip">#groups</span></div>
+      <p>Every group in the world at once, as cards, each carrying the conversation its members are having.</p>
+      <figure>
+        <img src="img/full-groups.png" alt="A grid of eight group cards, each with member names, faction badges, location, distance apart, and a transcript of party chat.">
+        <figcaption>Each card: who is in the group, what faction, where they are, how far apart they have drifted,
+        and the tail of their conversation.</figcaption>
+      </figure>
+      <p>The talk on each card is split in two. <b>earlier</b> is what these characters said in other company —
+      dimmed, because it is not this group's conversation. <b>since they joined up</b> is what they have said to
+      each other. A card reading <i>Nothing said since they joined up.</i> is a group that has not spoken yet.</p>
+      <p><b>Clicking a card</b> opens that group on its own map: every member as a large marker, everyone else on
+      the continent as small grey dots, and the whole conversation beneath. Clicking a marker there jumps you
+      straight to that character in the dashboard. <kbd>Esc</kbd> steps back to the wall, then closes it.</p>
+    </article>
+
+    <!-- MEMORIES -->
+    <article class="entry" id="memories">
+      <div class="entry-head"><h3>Every memory</h3><span class="entry-tip">#memories</span></div>
+      <p>Everything every character in the world still carries, heaviest first.</p>
+      <figure>
+        <img src="img/full-memories.png" alt="The Memories full-screen view listing 24,681 memories, each attributed to a character, weighted out of ten, written in prose.">
+        <figcaption>Twenty-four thousand memories. Every one was written by the character who carries it, about
+        something that actually happened to them.</figcaption>
+      </figure>
+      <p>The weight beside each — <b>10/10</b>, <b>9/10</b> — is how much it mattered to them. The heaviest
+      memories are deaths, near-misses and firsts; the lightest are errands.</p>
+      <p>Search by a person, a place, or a word that would have been in it. <i>Silithus</i> finds everyone who
+      remembers the desert; a character's name finds everything anyone remembers about them, not just their own
+      memories.</p>
+    </article>
+
+    <!-- JOURNEY -->
+    <article class="entry" id="journey">
+      <div class="entry-head"><h3>A character's journey</h3><span class="entry-tip">#journey/&lt;id&gt;</span></div>
+      <p>One life, in the order it happened. This is the closest thing the realm has to a biography.</p>
+      <figure>
+        <img src="img/full-journey.png" alt="The Journey full-screen view for a character: header with level and faction, counters for entries, deeds, conversations and feelings, a bar chart ribbon of activity over nine days, and a dated timeline of events.">
+        <figcaption>A character's record: the counters across the top, the activity ribbon under them, and the
+        timeline itself, grouped by day and by place.</figcaption>
+      </figure>
+      <h4>Reading it</h4>
+      <ul class="plain">
+        <li><b>The counters</b> — entries, deeds, conversations, feelings, memories, and how many different people they have travelled with.</li>
+        <li><b>The ribbon</b> — activity across the whole span, as bars. <b>Drag across it</b> to read only that stretch of time; click once to clear.</li>
+        <li><b>Chapters</b> — the timeline breaks itself into days, and within a day into places, with the companions they were with.</li>
+      </ul>
+      <h4>Filtering</h4>
+      <p>The chips across the top — <b>Deeds</b>, <b>Talk</b>, <b>Feelings</b>, <b>Memories</b>, <b>Group</b>,
+      <b>Encounters</b>, <b>Fighting</b> — each turn a kind of entry off. Turning everything off but <b>Talk</b>
+      gives you a transcript of every word they have spoken; leaving only <b>Deeds</b> gives a plain campaign log.</p>
+      <p>The button at the top left, showing the current character's name, switches to anyone else's journey
+      without leaving the view. Names inside the record are links too — clicking a companion opens
+      <em>their</em> journey, which is how you follow a friendship from both sides.</p>
+    </article>
+
+    <!-- CHRONICLE -->
+    <article class="entry" id="chronicle">
+      <div class="entry-head"><h3>The chronicle reader</h3><span class="entry-tip">#chronicle · #chronicle-yours</span></div>
+      <p>The faction chronicles, set as a newspaper.</p>
+      <figure>
+        <img src="img/full-chronicle.png" alt="The chronicle reader: masthead reading The Alliance Chronicle, the scribe's byline, and three columns of prose describing events in Gnomeregan and the Badlands.">
+        <figcaption>A watch of the Alliance Chronicle, written by its scribe from the events of that evening.</figcaption>
+      </figure>
+      <ul class="plain">
+        <li><b>Alliance</b> / <b>Horde</b> / <b>Yours</b> — whose edition you are reading. <b>Yours</b> covers only
+        what your own characters took part in.</li>
+        <li><b>The day dropdown</b>, with arrows either side — every edition the realm has produced. <kbd>←</kbd>
+        and <kbd>→</kbd> turn the day while the reader is open.</li>
+      </ul>
+      <p>Each article carries its watch, a headline, the scribe's byline, the prose, and a sidebar of <b>Word going
+      around</b> — the rumours attached to that watch. The two factions' editions of the same evening are worth
+      reading side by side: they describe the same events and disagree about them.</p>
+    </article>
+
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="pager">
+      <a href="panels.html"><span class="dir">Back</span><span class="ttl">The ten panels</span></a>
+      <a class="next" href="results.html"><span class="dir">Next</span><span class="ttl">Results</span></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p><b>Headless DM</b> — a private AzerothCore realm and the dashboard that reads it.</p>
+    <p>World of Warcraft and Warcraft are trademarks of Blizzard Entertainment. This project is not affiliated with
+    or endorsed by Blizzard, and distributes no Blizzard data.</p>
+  </div>
+</footer>
+
+</body>
+</html>

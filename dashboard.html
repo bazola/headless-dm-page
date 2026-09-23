@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reading the dashboard · Headless DM</title>
+<meta name="description" content="The anatomy of the Headless DM dashboard: the top bar, the panel rail, the world map, the inspector, and the keyboard shortcuts.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 1.5 30.5 16 16 30.5 1.5 16Z' fill='none' stroke='%23d9a441' stroke-width='2'/%3E%3Cpath d='M16 9.5 18.2 13.8 22.5 16 18.2 18.2 16 22.5 13.8 18.2 9.5 16 13.8 13.8Z' fill='%23d9a441'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Spectral:ital,wght@0,400;0,500;1,400&display=swap">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+
+<nav class="nav">
+  <a class="nav-brand" href="index.html">
+    <svg width="24" height="24" viewBox="0 0 32 32" aria-hidden="true">
+      <path d="M16 1.5 30.5 16 16 30.5 1.5 16Z" fill="none" stroke="#d9a441" stroke-width="1.6"/>
+      <path d="M16 9.5 18.2 13.8 22.5 16 18.2 18.2 16 22.5 13.8 18.2 9.5 16 13.8 13.8Z" fill="#d9a441"/>
+    </svg>
+    Headless DM
+  </a>
+  <div class="nav-links">
+    <a href="index.html">Overview</a>
+    <a href="dashboard.html" class="on">Reading the dashboard</a>
+    <a href="panels.html">The ten panels</a>
+    <a href="views.html">Full-screen views</a>
+    <a href="results.html">Results</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">The tour</div>
+    <h1>Reading the dashboard</h1>
+    <p class="lead">Open it in a browser and you get one screen with five regions. Nothing needs installing, and
+    nothing needs a login. This page explains each region, then the map and the inspector in detail.</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="toc">
+      <h4>On this page</h4>
+      <ol>
+        <li><a href="#open">Opening it</a></li>
+        <li><a href="#anatomy">The five regions</a></li>
+        <li><a href="#topbar">The top bar</a></li>
+        <li><a href="#map">The map</a></li>
+        <li><a href="#inspector">The inspector</a></li>
+        <li><a href="#keys">Keyboard and links</a></li>
+        <li><a href="#theme">Theme and map art</a></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section id="open">
+  <div class="wrap">
+    <h2>Opening it</h2>
+    <p>The dashboard is served by the world server itself, on port <code>8787</code>. On the machine running the
+    realm that is:</p>
+    <p><code>http://127.0.0.1:8787/</code></p>
+    <p>To reach it from another machine on your own network, the server's <code>Dashboard.Bind</code> setting has to
+    include that machine's address. Reading the dashboard needs no password. Only one thing is protected — pausing
+    and resuming a character — and that is covered under <a href="panels.html#commands">Commands</a>.</p>
+    <div class="note">
+      <p><b>This realm trusts whoever can reach it.</b> There are no per-user accounts. Anyone who can open the
+      page can read everything on it, so bind it to your own machine or a private network rather than the open
+      internet.</p>
+    </div>
+  </div>
+</section>
+
+<section id="anatomy">
+  <div class="wrap-wide">
+    <h2>The five regions</h2>
+    <figure>
+      <img src="img/panel-roster.png" alt="The dashboard with regions visible: statistics bar across the top, narrow icon rail on the left, the Roster panel beside it, and the map filling the rest.">
+      <figcaption>Every screen is made of the same five parts. Only the panel in the middle-left changes.</figcaption>
+    </figure>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>Region</th><th>Where</th><th>What it is</th></tr></thead>
+        <tbody>
+          <tr><td>Top bar</td><td>Across the top</td><td>Live statistics for the whole realm, the connection light, and the theme switch.</td></tr>
+          <tr><td>Rail</td><td>Far left, icons</td><td>Ten buttons, one per panel. The lit one is open.</td></tr>
+          <tr><td>Dock</td><td>Beside the rail</td><td>The open panel. Its heading and one-line description tell you what you are looking at.</td></tr>
+          <tr><td>Stage</td><td>The middle</td><td>The world map.</td></tr>
+          <tr><td>Inspector</td><td>Right, when summoned</td><td>Everything about one character or one company. Appears when you select something.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Clicking the rail button of the panel that is <em>already</em> open collapses the dock and gives the map the
+    full width. Clicking it again brings the panel back. There is also a collapse button at the bottom of the rail.</p>
+  </div>
+</section>
+
+<section id="topbar">
+  <div class="wrap">
+    <h2>The top bar</h2>
+    <p>Six tiles, refreshed every two seconds. Two of them carry a sparkline of the last three minutes; hovering a
+    tile tells you its range over that window.</p>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>Tile</th><th>Meaning</th></tr></thead>
+        <tbody>
+          <tr><td>Bots online</td><td>How many characters the world is running. The sparkline shows the last few minutes.</td></tr>
+          <tr><td>Active</td><td>Bots being updated at full rate, with their share of the total underneath. The rest are throttled — still in the world, updated less often, to save the machine.</td></tr>
+          <tr><td>Paused</td><td>Bots you have frozen in place. The tile lights up when it is above zero.</td></tr>
+          <tr><td>Players</td><td>Real human players online.</td></tr>
+          <tr><td>World update</td><td>How long the server takes per tick, in milliseconds, with <code>max</code> and <code>last</code> beside it. It turns to a warning colour above 50 ms. Low is healthy.</td></tr>
+          <tr><td>On this map</td><td>How many characters are on the continent you are currently looking at. Matches the map legend's total.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>At the right-hand end, a dot and a clock read <b>Live</b> and the time of the last snapshot. If it says
+    <b>Not updating</b> with a reason, the page has lost the server — the numbers on screen are the last good ones.</p>
+  </div>
+</section>
+
+<section id="map">
+  <div class="wrap-wide">
+    <h2>The map</h2>
+    <p>The centre of the screen is a live map of one continent at a time. Every character outdoors is a dot, moving
+    as they move.</p>
+
+    <h3>Switching continents</h3>
+    <p>Four buttons sit above the map — <b>Eastern Kingdoms</b>, <b>Kalimdor</b>, <b>Outland</b> and
+    <b>Northrend</b> — each showing how many characters are on it right now. Your choice is remembered.</p>
+    <figure>
+      <img src="img/map-kalimdor.png" alt="The map switched to Kalimdor in the light theme, zones shaded in company colours, hundreds of markers spread across the continent.">
+      <figcaption><b>Kalimdor, in the light theme.</b> The shaded rectangles are zones held or contested by
+      companies, coloured by the company that holds them.</figcaption>
+    </figure>
+
+    <h3>Markers</h3>
+    <p>Each dot is coloured by what that character is doing. Real players and paused bots are drawn larger with a
+    bright ring so they stand out; the selected character gets a pulsing ring. Hovering a dot names them, gives
+    their level, race, class and what they are up to. <b>Clicking a dot opens them in the inspector.</b></p>
+    <ul class="plain">
+      <li><span class="dot d-players"></span><b>Players</b> — a real human, not a bot.</li>
+      <li><span class="dot d-active"></span><b>Active</b> — running at full tick.</li>
+      <li><span class="dot d-idle"></span><b>Throttled</b> — in the world, updated less often. Most of the realm sits here.</li>
+      <li><span class="dot d-paused"></span><b>Paused</b> — frozen by you from the Commands panel.</li>
+      <li><span class="dot d-combat"></span><b>In combat</b> — fighting right now.</li>
+      <li><span class="dot d-flight"></span><b>Flying</b> — on a flight path.</li>
+      <li><span class="dot d-dead"></span><b>Dead</b> — awaiting a resurrection.</li>
+    </ul>
+    <p>A character only ever counts as one of these. If they are dead <em>and</em> throttled, they show as dead.</p>
+
+    <h3>The legend, and hiding what you don't want</h3>
+    <p>The box at the bottom left is headed <b>On this map</b> with the total beside it. Each row is a state with
+    its own count — and each row is a button: <b>click a row to hide that state's markers</b>, click again to bring
+    them back. Hiding <b>Throttled</b> is the usual move, since it is most of the realm and it buries everything
+    else. The chevron collapses the whole box.</p>
+
+    <h3>Layers</h3>
+    <figure>
+      <img src="img/map-layers.png" alt="The Layers popover open over the map, showing three toggle switches: Map art off, Zone outlines on, Company holdings on.">
+      <figcaption>The <b>Layers</b> button opens three switches. This is also where the painted map is turned on
+      and off.</figcaption>
+    </figure>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>Toggle</th><th>Default</th><th>What it does</th></tr></thead>
+        <tbody>
+          <tr><td>Map art</td><td>On</td><td>The painted world map from your game client. Zone art fades in as you zoom.</td></tr>
+          <tr><td>Zone outlines</td><td>Off</td><td>A border around each zone. Forced on whenever map art is off, so the map is never blank.</td></tr>
+          <tr><td>Company holdings</td><td>On</td><td>Shades each zone in the colour of the company that holds or contests it.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Zooming</h3>
+    <p>The buttons at the bottom right are zoom in, zoom out, and <b>fit the continent</b>. Zone names only appear
+    once you are zoomed in past a certain point — so if the map looks unlabelled, zoom in.</p>
+    <figure>
+      <img src="img/map-zoom.png" alt="The map zoomed into Duskwood and Deadwind Pass, zone names labelled, a selected player marker with a ring, and the inspector open on the right.">
+      <figcaption><b>Zoomed in on Duskwood.</b> Zone names have appeared, the neighbouring holdings are shaded by
+      their owners, and the selected character carries a ring. The inspector on the right opened when the marker
+      was clicked.</figcaption>
+    </figure>
+
+    <h3>Territory</h3>
+    <p>With <b>Company holdings</b> on, hovering a shaded zone tells you its level range, who holds it, who
+    contests it, how influence is split, and whether a company keeps a seat there. Contested zones get a thicker
+    dashed border. <b>Clicking a held zone opens the company that holds it</b> in the inspector. Select a company
+    and the map re-shades: its lands stand out strongly and everything else dims.</p>
+  </div>
+</section>
+
+<section id="inspector">
+  <div class="wrap-wide">
+    <h2>The inspector</h2>
+    <p>Select anyone — from the map, the roster, or any name link anywhere in the dashboard — and the right-hand
+    drawer opens on them. Close it with the <b>×</b> or the <kbd>Esc</kbd> key.</p>
+    <p>At the top: their name, level, race and class; badges for faction and whether they are a real player; a pill
+    for what they are doing; and where they are standing. Then up to three buttons — <b>Pause</b> (or
+    <b>Resume</b>), <b>Show on map</b>, and <b>Journey</b>, which opens their whole record full screen.</p>
+
+    <h3>The four tabs</h3>
+    <figure>
+      <img src="img/inspector-story.png" alt="The inspector open on Melicia, a level 26 human mage, showing the Story tab with sections headed Who they are, What drives them, and Their story.">
+      <figcaption>The <b>Story</b> tab. Every bot has one of these — who they are, what drives them, and where
+      they came from. It is what they sound like when they speak.</figcaption>
+    </figure>
+    <figure>
+      <img src="img/inspector-memories.png" alt="The inspector Memories tab showing 112 memories, 45 defining, average weight 7.8, and a list of memories each weighed ten out of ten.">
+      <figcaption>The <b>Memories</b> tab on the same character: 112 memories, 45 of them defining, each weighed
+      and written in her own words.</figcaption>
+    </figure>
+    <figure>
+      <img src="img/inspector-ties.png" alt="The inspector open on a character with the Ties tab selected, showing counts and a list of relationships with scores and meters.">
+      <figcaption>The <b>Ties</b> tab: how this character feels about everyone they have met, and how everyone
+      feels about them.</figcaption>
+    </figure>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>Tab</th><th>What is on it</th></tr></thead>
+        <tbody>
+          <tr><td>Story</td><td>Who they are, what drives them, and their backstory. Written for them when the realm was populated. Real players have none — this is a bots-only tab in practice.</td></tr>
+          <tr><td>Ties</td><td>Counts of ties, warm and cold; then every relationship, warmest to coldest, each with a score, a phrase describing it, how many moments built it, and a meter. Weak ties fold away into <b>Passing acquaintances</b>.</td></tr>
+          <tr><td>Memories</td><td>Everything this character still carries, heaviest first, each weighed out of ten, in their own words.</td></tr>
+          <tr><td>Details</td><td>The mechanical facts: activity, state, location, group, GUID, and the AI strategies currently driving them. This is the tab to look at when something seems stuck.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Whichever tab you leave open is the one you come back to next time.</p>
+    <p>Select a <em>company</em> instead of a character and the inspector shows that instead: its seats, the lands
+    it holds and contests, its standing with every other company and why, and its recent incidents.</p>
+  </div>
+</section>
+
+<section id="keys">
+  <div class="wrap">
+    <h2>Keyboard and links</h2>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>Key</th><th>Does</th></tr></thead>
+        <tbody>
+          <tr><td><kbd>/</kbd></td><td>Jumps straight to the roster's search box from anywhere.</td></tr>
+          <tr><td><kbd>Esc</kbd></td><td>Closes the inspector. Inside a text box, leaves the box first. Inside a full-screen view, closes it.</td></tr>
+          <tr><td><kbd>←</kbd> <kbd>→</kbd></td><td>Turns the page back and forward a day, while the chronicle reader is open.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Names are links almost everywhere — in the chronicle, in a conversation, in a list of ties. Clicking one
+    selects that character. If they happen to be offline, a small notice says so rather than opening an empty
+    drawer.</p>
+    <p>The five full-screen views each set their own web address, so you can bookmark one or keep it open in its
+    own tab:</p>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>Address</th><th>Opens</th></tr></thead>
+        <tbody>
+          <tr><td><code>#moments</code></td><td>Every moment, ever</td></tr>
+          <tr><td><code>#overheard</code></td><td>Every conversation overheard</td></tr>
+          <tr><td><code>#warmest</code> / <code>#coldest</code></td><td>Every tie, ranked</td></tr>
+          <tr><td><code>#memories</code></td><td>Every memory in the world</td></tr>
+          <tr><td><code>#groups</code></td><td>The wall of groups</td></tr>
+          <tr><td><code>#chronicle</code></td><td>The chronicle reader</td></tr>
+          <tr><td><code>#journey/&lt;id&gt;</code></td><td>One character's whole journey</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section id="theme">
+  <div class="wrap-wide">
+    <h2>Theme and map art</h2>
+    <p>The button at the far right of the top bar switches between the dark and light themes, and remembers your
+    choice.</p>
+    <figure>
+      <img src="img/light-overview.png" alt="The whole dashboard in its light theme, showing Kalimdor with company holdings in pale colours.">
+      <figcaption>The same dashboard in its light theme.</figcaption>
+    </figure>
+    <div class="note">
+      <p><b>Why these screenshots have no painted map.</b> The world map art is extracted from your own copy of the
+      game and belongs to Blizzard, so it is never published — not in this project's repositories and not on this
+      site. Every map on these pages was taken with <b>Layers ▸ Map art</b> switched off, which is why you see
+      outlined zones on a dark ground instead of a painted continent. On your realm it is on by default and the map
+      looks like the game's.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="pager">
+      <a href="index.html"><span class="dir">Back</span><span class="ttl">Overview</span></a>
+      <a class="next" href="panels.html"><span class="dir">Next</span><span class="ttl">The ten panels</span></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p><b>Headless DM</b> — a private AzerothCore realm and the dashboard that reads it.</p>
+    <p>World of Warcraft and Warcraft are trademarks of Blizzard Entertainment. This project is not affiliated with
+    or endorsed by Blizzard, and distributes no Blizzard data.</p>
+  </div>
+</footer>
+
+</body>
+</html>
