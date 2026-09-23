@@ -454,6 +454,11 @@ ul.plain > li b { color: var(--ink); }
 }
 .btn-gold:hover { background: var(--gold-hi); border-color: var(--gold-hi); color: var(--gold-ink); }
 
+/* The source link: second in weight only to the gold call to action. */
+.btn-code { background: var(--bg-3); border-color: var(--line-3); color: var(--ink); }
+.btn-code:hover { background: var(--bg-4); border-color: var(--gold-line); color: var(--gold-hi); }
+.btn svg { flex: none; }
+
 /* ---- Status pills ---- */
 
 .pill {
