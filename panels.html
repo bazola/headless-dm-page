@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>The ten panels · Headless DM</title>
-<meta name="description" content="Every panel on the Headless DM dashboard: Roster, Feelings, Groups, Companies, Chronicle, Market, Commands, Lore, Memories and Journey.">
+<title>Panels · Headless DM</title>
+<meta name="description" content="Every panel on the Headless DM dashboard and every control on it, grouped by the question each one answers.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 1.5 30.5 16 16 30.5 1.5 16Z' fill='none' stroke='%23d9a441' stroke-width='2'/%3E%3Cpath d='M16 9.5 18.2 13.8 22.5 16 18.2 18.2 16 22.5 13.8 18.2 9.5 16 13.8 13.8Z' fill='%23d9a441'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,103 +23,62 @@
   </a>
   <div class="nav-links">
     <a href="index.html">Overview</a>
-    <a href="dashboard.html">Reading the dashboard</a>
-    <a href="panels.html" class="on">The ten panels</a>
+    <a href="dashboard.html">The interface</a>
+    <a href="panels.html" class="on">Panels</a>
     <a href="views.html">Full-screen views</a>
-    <a href="results.html">Results</a>
+    <a href="results.html">Data</a>
   </div>
 </nav>
 
 <header class="hero">
   <div class="wrap">
-    <div class="eyebrow">Reference</div>
-    <h1>The ten panels</h1>
-    <p class="lead">The rail on the left holds ten panels. Each one answers a different question about the realm.
-    Hovering any rail button tells you which — this page says it at length, with every control named.</p>
-  </div>
-</header>
-
-<section>
-  <div class="wrap">
+    <h1>Panels</h1>
+    <p class="lead">Ten panels sit on the rail. Each answers a different question about the realm. They are
+    grouped here by what they are for; the rail itself lists them in its own fixed order.</p>
     <div class="toc">
-      <h4>The panels</h4>
+      <h4>Contents</h4>
       <ol>
-        <li><a href="#roster">Roster</a> — who is here</li>
-        <li><a href="#feelings">Feelings</a> — who likes whom</li>
-        <li><a href="#groups">Groups</a> — who is together</li>
-        <li><a href="#companies">Companies</a> — guilds and land</li>
-        <li><a href="#chronicle">Chronicle</a> — the written record</li>
-        <li><a href="#market">Market</a> — the auction houses</li>
-        <li><a href="#commands">Commands</a> — pause and resume</li>
-        <li><a href="#lore">Lore</a> — write your own</li>
-        <li><a href="#memories">Memories</a> — what they carry</li>
-        <li><a href="#journey">Journey</a> — one life in order</li>
+        <li><a href="#who">Who is in the world</a> — Roster, Groups</li>
+        <li><a href="#feel">What they feel and keep</a> — Feelings, Memories, Journey</li>
+        <li><a href="#world">The world around them</a> — Companies, Chronicle, Market</li>
+        <li><a href="#change">What you can change</a> — Commands, Lore</li>
       </ol>
     </div>
     <div class="note">
       <p><b>Two words worth pinning down.</b> A <b>company</b> is a guild — a standing organisation with seats,
-      land and rivalries. A <b>group</b> is a party — a handful of characters standing together right now. They
-      have separate panels because they are separate things.</p>
+      land and rivalries. A <b>group</b> is a party — a handful of characters standing together right now.</p>
     </div>
   </div>
-</section>
+</header>
 
-<section>
+<section id="who">
   <div class="wrap-wide">
+    <h2>Who is in the world</h2>
 
-    <!-- ROSTER -->
     <article class="entry" id="roster">
       <div class="entry-head"><h3>Roster</h3><span class="entry-tip">Everyone in the world right now</span></div>
-      <p>The census, and the fastest way to find one person. Each row gives a character's name, their level, class
-      and where they are standing, with a coloured dot for what they are doing.</p>
+      <p>The census, and the fastest way to find one person. Each row gives a character's name, level, class and
+      where they are standing, with a coloured dot for what they are doing.</p>
       <figure>
         <img src="img/panel-roster.png" alt="The Roster panel: a search box, five filter chips with counts, and a list of real players.">
-        <figcaption>The Roster opens on <b>Notable</b> — the handful of characters worth your attention out of
-        nine hundred.</figcaption>
+        <figcaption>The Roster opens on <b>Notable</b> — the handful of characters worth attention out of nine
+        hundred.</figcaption>
       </figure>
       <h4>Controls</h4>
       <ul class="plain">
-        <li><b>Find by name</b> — the search box. Press <kbd>/</kbd> anywhere in the dashboard to jump into it.</li>
-        <li><b>Notable</b> — real players, paused bots, and anyone inside an instance. The default, and usually the right one.</li>
+        <li><b>Find by name</b> — the search box. <kbd>/</kbd> jumps into it from anywhere.</li>
+        <li><b>Notable</b> — real players, paused bots, and anyone inside an instance. The default.</li>
         <li><b>On this map</b> — everyone on the continent you are looking at.</li>
         <li><b>In combat</b> — everyone fighting at this instant.</li>
         <li><b>Dead</b> — everyone awaiting a resurrection.</li>
         <li><b>Everyone</b> — all nine hundred-odd, alphabetically.</li>
       </ul>
-      <p>Each chip carries its own live count, so the filter row doubles as a summary of the realm. Lists cap at
-      150 rows and tell you how many more there are; narrow the search rather than scrolling.</p>
-      <p><b>Clicking a row</b> opens that character in the inspector, switches the map to their continent, and pans
-      to them.</p>
+      <p>Each chip carries a live count, so the filter row doubles as a summary of the realm. Lists cap at 150
+      rows and say how many more there are.</p>
+      <p><b>Clicking a row</b> opens that character in the inspector, switches the map to their continent, and
+      pans to them.</p>
     </article>
 
-    <!-- FEELINGS -->
-    <article class="entry" id="feelings">
-      <div class="entry-head"><h3>Feelings</h3><span class="entry-tip">Who has warmed to or cooled on whom</span></div>
-      <p>The social life of the realm. Characters form opinions by talking, by overhearing others, and by what
-      happens to them — and every shift is recorded with the reason for it.</p>
-      <figure>
-        <img src="img/panel-feelings.png" alt="The Feelings panel showing counts for ties, moments today and overheard conversations, then a list of recent moments with reasons.">
-        <figcaption>Recent moments, each with the reason underneath and how far the feeling moved.</figcaption>
-      </figure>
-      <h4>The four sections</h4>
-      <div class="table-scroll">
-        <table>
-          <thead><tr><th>Section</th><th>What is in it</th></tr></thead>
-          <tbody>
-            <tr><td>Recent moments</td><td>The latest shifts: <i>X warmed to Y</i> or <i>X cooled on Y</i>, how much, and why. The timestamp's tooltip says whether it came from chat, from being overheard, or from an event.</td></tr>
-            <tr><td>Overheard</td><td>Whole conversations. Open one and you get the exchange as it was spoken, then the feelings it caused in whoever was listening.</td></tr>
-            <tr><td>Warmest ties</td><td>The strongest friendships in the world, with a phrase describing each and how many moments built it.</td></tr>
-            <tr><td>Coldest ties</td><td>The same, for the people who cannot stand each other.</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <p>A section heading reading <b>25 of 14,494</b> means you are seeing the top of a much larger pile. The
-      small expand button on each heading — <b>Show every one, full screen</b> — opens the whole list; see
-      <a href="views.html#feelings">Feelings in full</a>.</p>
-      <p>Every name is a link. Click one to open that character.</p>
-    </article>
-
-    <!-- GROUPS -->
     <article class="entry" id="groups">
       <div class="entry-head"><h3>Groups</h3><span class="entry-tip">Who is standing together right now, and what they are saying</span></div>
       <p>Characters find each other and travel together without being told to. This panel lists every group
@@ -127,128 +86,182 @@
       said.</p>
       <figure>
         <img src="img/panel-groups.png" alt="The Groups panel listing pairs of characters with their location, time together and line counts.">
-        <figcaption>Each row is a group: the members, where they are standing, how long they have been together,
-        and how much talk there has been since they joined up.</figcaption>
+        <figcaption>Each row is a group: members, where they are standing, how long they have been together, and
+        how much talk there has been since they joined up.</figcaption>
       </figure>
-      <p>The line above the list sums it up — how many groups, how many bots, how many real players, and how many
-      are talking. A row reading <b>266 yd apart</b> means the group has drifted; one reading <b>apart</b> means
-      its members are in different zones entirely.</p>
-      <p><b>Clicking a row</b> opens that group full screen, on its own map, with its whole conversation. The
-      <b>Open Groups</b> button opens the wall of every group at once — see <a href="views.html#groups">the group
-      wall</a>.</p>
+      <p>The line above the list totals it — how many groups, bots, real players, and how many are talking. A row
+      reading <b>266 yd apart</b> means the group has drifted; <b>apart</b> means its members are in different
+      zones.</p>
+      <p><b>Clicking a row</b> opens that group full screen, on its own map, with its whole conversation.
+      <b>Open Groups</b> opens the wall of every group at once.</p>
+    </article>
+  </div>
+</section>
+
+<section id="feel">
+  <div class="wrap-wide">
+    <h2>What they feel and keep</h2>
+
+    <article class="entry" id="feelings">
+      <div class="entry-head"><h3>Feelings</h3><span class="entry-tip">Who has warmed to or cooled on whom</span></div>
+      <p>Characters form opinions by talking, by overhearing others, and by what happens to them. Every shift is
+      recorded with the reason for it.</p>
+      <figure>
+        <img src="img/panel-feelings.png" alt="The Feelings panel showing counts for ties, moments today and overheard conversations, then a list of recent moments with reasons.">
+        <figcaption>Recent moments, each with the reason underneath and how far the feeling moved.</figcaption>
+      </figure>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th>Section</th><th>What is in it</th></tr></thead>
+          <tbody>
+            <tr><td>Recent moments</td><td><i>X warmed to Y</i> or <i>X cooled on Y</i>, how much, and why. The timestamp's tooltip says whether it came from chat, from being overheard, or from an event.</td></tr>
+            <tr><td>Overheard</td><td>Whole conversations. Open one for the exchange as spoken, then the feelings it caused in whoever was listening.</td></tr>
+            <tr><td>Warmest ties</td><td>The strongest attachments in the world, each with a phrase describing it and how many moments built it.</td></tr>
+            <tr><td>Coldest ties</td><td>The same, for the people who cannot stand each other.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>A heading reading <b>25 of 14,494</b> means you are seeing the top of a larger pile; the expand button
+      on it opens the whole list. Every name is a link.</p>
     </article>
 
-    <!-- COMPANIES -->
+    <article class="entry" id="memories">
+      <div class="entry-head"><h3>Memories</h3><span class="entry-tip">What the bots still carry: their deeds and what they made of them</span></div>
+      <p>Not everything that happens is worth remembering. What is, gets written down in the character's own
+      words and weighed out of ten.</p>
+      <figure>
+        <img src="img/panel-memories.png" alt="The Memories panel with counts for memories, how many characters are remembering, today's total and average weight, then a list of recent memories.">
+        <figcaption><b>Lately remembered</b>, newest first, each weighed. Below it, who carries the most.</figcaption>
+      </figure>
+      <p>The counts give the total, how many characters carry anything, how many formed today, and the average
+      weight. A memory weighed 10/10 was a defining event; a 3/10 was an errand.</p>
+      <p>To read one character's memories instead of the world's, select them and open the <b>Memories</b> tab in
+      the inspector.</p>
+    </article>
+
+    <article class="entry" id="journey">
+      <div class="entry-head"><h3>Journey</h3><span class="entry-tip">Everything one character has done, in the order it happened</span></div>
+      <p>One character's whole record, assembled from the ledger — every kill, quest, level, item, journey,
+      conversation, feeling and memory, in order.</p>
+      <figure>
+        <img src="img/panel-journey.png" alt="The Journey panel with a search box and a list of characters, each showing their level, class and number of entries.">
+        <figcaption>Everyone who has a journey written, with how many entries it runs to.</figcaption>
+      </figure>
+      <p>Unlike every other panel, this one lists <b>characters who are offline too</b>. Search by name, or click
+      a row to open that journey full screen. The journeys are rebuilt every ten minutes.</p>
+    </article>
+  </div>
+</section>
+
+<section id="world">
+  <div class="wrap-wide">
+    <h2>The world around them</h2>
+
     <article class="entry" id="companies">
       <div class="entry-head"><h3>Companies</h3><span class="entry-tip">Seats, lands, feuds and who is joining</span></div>
-      <p>Companies are the realm's guilds. They hold territory, keep seats of power, court new members and fall out
-      with one another.</p>
+      <p>Companies are the realm's guilds. They hold territory, keep seats, court new members and fall out with
+      one another.</p>
       <figure>
         <img src="img/panel-companies.png" alt="The Companies panel with counts for companies, lands held, contested and relations, then Alliance and Horde company lists.">
-        <figcaption>Companies split by faction, each showing what it holds, what it contests and how many seats it
-        keeps.</figcaption>
+        <figcaption>Companies split by faction, each showing what it holds, what it contests and how many seats
+        it keeps.</figcaption>
       </figure>
-      <h4>The four sections</h4>
       <ul class="plain">
-        <li><b>Companies</b> — every company, under <b>Alliance</b> and <b>Horde</b> headings, with what it holds and contests.</li>
-        <li><b>Candidacies</b> — who is trying to join whom, and how far along they are: <i>noticed</i>, <i>spoken for</i>, <i>offered a place</i>, <i>sworn in</i>. Sponsors and opponents are named.</li>
+        <li><b>Companies</b> — every company under <b>Alliance</b> and <b>Horde</b> headings.</li>
+        <li><b>Candidacies</b> — who is trying to join whom, and how far along: <i>noticed</i>, <i>spoken for</i>, <i>offered a place</i>, <i>sworn in</i>. Sponsors and opponents are named.</li>
         <li><b>Fallen companies</b> — collapsed by default. Companies that broke apart, went quiet, or left remnants.</li>
-        <li><b>Recent incidents</b> — what has happened between companies lately: land <i>Claimed</i>, <i>Taken</i>, <i>Held</i>, <i>Contested</i>, or two of them hunting the same prey.</li>
+        <li><b>Recent incidents</b> — land <i>Claimed</i>, <i>Taken</i>, <i>Held</i>, <i>Contested</i>, or two companies hunting the same prey.</li>
       </ul>
-      <p><b>Clicking a company</b> opens it in the inspector — its seats, its lands, and what it says about each
-      rival. Its territory lights up on the map at the same time.</p>
+      <p><b>Clicking a company</b> opens it in the inspector and lights its territory up on the map.</p>
     </article>
 
-    <!-- CHRONICLE -->
     <article class="entry" id="chronicle">
       <div class="entry-head"><h3>Chronicle</h3><span class="entry-tip">Each faction scribe's watches and the word going around</span></div>
-      <p>Each faction has a scribe who writes up the world's events in period prose, one watch at a time, from what
-      actually happened. Rumours travel outward from where they started and distort as they go.</p>
+      <p>Each faction has a scribe who writes up the world's events in period prose, one watch at a time, from
+      what actually happened. Rumours travel outward from where they started and distort as they go.</p>
       <figure>
         <img src="img/panel-chronicle.png" alt="The Chronicle panel with an Alliance and Horde switcher, the scribe's card, and expandable watch entries.">
         <figcaption>The scribe, then one card per watch. Opening a card shows the prose and the rumours attached
         to it.</figcaption>
       </figure>
-      <h4>Controls</h4>
       <ul class="plain">
-        <li><b>Alliance</b> / <b>Horde</b> — whose scribe you are reading. Each faction sees the world differently.</li>
+        <li><b>Alliance</b> / <b>Horde</b> — whose scribe you are reading. The factions see the world differently.</li>
         <li><b>Open Chronicle</b> — the full-screen reader, laid out as a newspaper.</li>
         <li><b>Your Chronicle</b> — an edition covering only what your own characters took part in.</li>
       </ul>
-      <p>Inside a watch, <b>Word going around</b> collects the rumours. Labels like <i>Carried on</i>,
-      <i>Further still</i> and <i>Far and wide</i> tell you how many hands a story has passed through — the further
-      it has travelled, the less reliable it is.</p>
+      <p>Inside a watch, <b>Word going around</b> collects the rumours. Labels like <i>Carried on</i>, <i>Further
+      still</i> and <i>Far and wide</i> say how many hands a story has passed through — the further it has
+      travelled, the less reliable it is.</p>
     </article>
 
-    <!-- MARKET -->
     <article class="entry" id="market">
       <div class="entry-head"><h3>Market</h3><span class="entry-tip">The auction houses: stalls, sales and what goods fetch</span></div>
-      <p>Merchants stock the auction houses, ordinary characters list what they loot, and the market works out what
-      things are actually worth.</p>
+      <p>Merchants stock the auction houses, characters list what they loot, and the market works out what things
+      are worth.</p>
       <figure>
         <img src="img/panel-market.png" alt="The Market panel showing listings and gold counts, auction house bars, a 24-hour sales chart and a list of most traded goods.">
         <figcaption>Listings, sales and learned prices, with a day's trading charted across the middle.</figcaption>
       </figure>
       <ul class="plain">
-        <li><b>Auction houses</b> — one bar per house, split by who is selling: <i>merchant</i>, <i>townsfolk</i> or <i>player</i>.</li>
-        <li><b>Last day</b> — twenty-four hours of sold, listed and expired. Hover a column for that hour's numbers.</li>
-        <li><b>Most traded goods</b> — item names in their quality colours, with the price the market has learned and an arrow showing which way it moved.</li>
-        <li><b>Recent sales</b> — what changed hands, for how much, and between whom. Anything involving a real player is highlighted.</li>
+        <li><b>Auction houses</b> — one bar per house, split by seller: <i>merchant</i>, <i>townsfolk</i> or <i>player</i>.</li>
+        <li><b>Last day</b> — twenty-four hours of sold, listed and expired. Hover a column for that hour.</li>
+        <li><b>Most traded goods</b> — item names in quality colours, the price the market has learned, and which way it moved.</li>
+        <li><b>Recent sales</b> — what changed hands, for how much, between whom.</li>
       </ul>
-      <p>The market file is rewritten every ten minutes. If it falls behind, a <b>stale</b> badge appears beside
-      the heading.</p>
+      <p>The market file is rewritten every ten minutes; if it falls behind, a <b>stale</b> badge appears.</p>
     </article>
+  </div>
+</section>
 
-    <!-- COMMANDS -->
+<section id="change">
+  <div class="wrap-wide">
+    <h2>What you can change</h2>
+    <p>Eight of the ten panels only report. These two act on the world.</p>
+
     <article class="entry" id="commands">
       <div class="entry-head"><h3>Commands</h3><span class="entry-tip">Pause or resume a bot on the world server</span></div>
-      <p>The only panel that changes the world rather than reporting on it, and the only one that needs a password.</p>
+      <p>The only panel that needs a password.</p>
       <figure>
         <img src="img/panel-commands.png" alt="The Commands panel showing whether commands are on, a token field, and a list of recent results.">
-        <figcaption>The panel tells you at the top whether commands are available at all.</figcaption>
+        <figcaption>The panel says at the top whether commands are available at all.</figcaption>
       </figure>
-      <p>Pausing freezes a character where they stand. They will still defend themselves if attacked, and the pause
-      ends when they log out or the server restarts — it is a way to hold someone still, not to remove them.</p>
+      <p>Pausing freezes a character where they stand. They still defend themselves if attacked, and the pause
+      ends when they log out or the server restarts — it holds someone still, it does not remove them.</p>
       <ol class="steps">
-        <li>Paste your server's command token into the token field. It is kept in your browser only, and never
-        leaves it except as a header on the command itself.</li>
-        <li>Select a character — from the map, the roster, anywhere.</li>
+        <li>Paste the server's command token into the token field. It is kept in your browser only, and leaves it
+        only as a header on the command itself.</li>
+        <li>Select a character, from the map or the roster.</li>
         <li>Press <b>Pause</b> in the inspector. It becomes <b>Resume</b>.</li>
       </ol>
-      <p>Try to pause someone without a token and the dashboard brings you to this panel and asks for it. Every
-      result the server sends back is listed under <b>Recent results</b>, so you can see what took and what
-      didn't.</p>
+      <p>Pausing without a token brings you to this panel and asks for one. Every result the server sends back is
+      listed under <b>Recent results</b>.</p>
       <div class="note">
-        <p><b>Where the token comes from.</b> It is the <code>Dashboard.CommandToken</code> setting on the server.
-        If it was never set, the panel simply reads <b>Commands are off</b> and the pause buttons do nothing.</p>
+        <p><b>Where the token comes from.</b> It is the <code>Dashboard.CommandToken</code> setting on the
+        server. If it was never set, the panel reads <b>Commands are off</b> and the pause buttons do nothing.</p>
       </div>
     </article>
 
-    <!-- LORE -->
     <article class="entry" id="lore">
       <div class="entry-head"><h3>Lore</h3><span class="entry-tip">Write your characters' story, and let the world check it</span></div>
-      <p>This is where you write yourself into the world. Your own characters can be given a backstory, a turn of
-      speech, and a relationship to each other — and the world checks what you wrote before it accepts it.</p>
+      <p>Where you write your own characters into the world. They can be given a backstory, a turn of speech and
+      a relationship to each other, and the world checks what you wrote before accepting it.</p>
       <figure>
         <img src="img/panel-lore.png" alt="The Lore panel listing the player's characters with bond kinds, a Look again button, and the gate's four rules.">
         <figcaption>Your characters, each showing whether they have a <b>sheet</b>, a <b>story</b> and
-        <b>traits</b> yet, and the bond that ties them to your main.</figcaption>
+        <b>traits</b> yet, and the bond tying them to your main.</figcaption>
       </figure>
-      <h4>How it goes</h4>
       <ol class="steps">
-        <li><b>Name your main.</b> The character you actually play as yourself. The rest become their alts, and can
-        be bound to them.</li>
-        <li><b>Pick a character</b> from <b>Your characters</b>. What already stands for them appears below.</li>
-        <li><b>Bring them into the world.</b> Choose what is between them and your main — only ties that pair could
-        genuinely have are offered — plus a turn of speech and a few words of your own. <b>Surprise me</b> fills
-        all three in as suggestions you can edit.</li>
-        <li><b>Write it</b>, read what came back, and <b>Bring them in</b> when you are happy. Nothing is stored
-        until you do.</li>
+        <li><b>Name your main</b> — the character you play as yourself. The rest become their alts.</li>
+        <li><b>Pick a character.</b> What already stands for them appears below.</li>
+        <li><b>Bring them into the world.</b> Choose what is between them and your main — only ties that pair
+        could genuinely have are offered — plus a turn of speech and a few words of your own. <b>Surprise me</b>
+        fills all three in as editable suggestions.</li>
+        <li><b>Write it</b>, read what came back, then <b>Bring them in</b>. Nothing is stored until you do.</li>
       </ol>
       <p>Under <b>Words that must survive</b> you can name things the writing must not lose — a cousin, a debt, a
       home town. If the result drops them, it is written again without them.</p>
       <h4>The gate</h4>
-      <p>Anything you write is checked against four rules before the world will hold it:</p>
+      <p>Anything you write is checked against four rules:</p>
       <ul class="plain">
         <li>Write as though it is real life. No games, no figures.</li>
         <li>Nothing later than this age has happened yet.</li>
@@ -260,43 +273,8 @@
       bottom under <b>The gate</b>.</p>
     </article>
 
-    <!-- MEMORIES -->
-    <article class="entry" id="memories">
-      <div class="entry-head"><h3>Memories</h3><span class="entry-tip">What the bots still carry: their deeds and what they made of them</span></div>
-      <p>Not everything that happens is worth remembering. What is, gets written down in the character's own words
-      and weighed out of ten — and they carry it afterwards.</p>
-      <figure>
-        <img src="img/panel-memories.png" alt="The Memories panel with counts for memories, how many characters are remembering, today's total and average weight, then a list of recent memories.">
-        <figcaption><b>Lately remembered</b>, newest first, each weighed. Below it, who carries the most.</figcaption>
-      </figure>
-      <p>The counts at the top give the total, how many characters are carrying anything, how many were formed
-      today, and the average weight. A memory weighed 10/10 was a defining event; a 3/10 was a Tuesday.</p>
-      <p>The expand button opens <a href="views.html#memories">every memory in the world</a>, searchable. To read
-      one character's memories instead, select them and open the <b>Memories</b> tab in the inspector.</p>
-    </article>
-
-    <!-- JOURNEY -->
-    <article class="entry" id="journey">
-      <div class="entry-head"><h3>Journey</h3><span class="entry-tip">Everything one character has done, in the order it happened</span></div>
-      <p>The deepest view in the dashboard: one character's entire life, assembled from the ledger — every kill,
-      quest, level, item, journey, conversation, feeling and memory, in order.</p>
-      <figure>
-        <img src="img/panel-journey.png" alt="The Journey panel with a search box and a list of characters, each showing their level, class and number of entries.">
-        <figcaption>Everyone who has a journey written, with how many entries it runs to.</figcaption>
-      </figure>
-      <p>Unlike every other panel, this one lists <b>characters who are offline too</b>. Their record does not stop
-      existing because they logged out.</p>
-      <p>Search by name, or click any row to open that journey full screen. The journeys are rebuilt every ten
-      minutes. See <a href="views.html#journey">a character's journey</a> for what is inside one.</p>
-    </article>
-
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
     <div class="pager">
-      <a href="dashboard.html"><span class="dir">Back</span><span class="ttl">Reading the dashboard</span></a>
+      <a href="dashboard.html"><span class="dir">Back</span><span class="ttl">The interface</span></a>
       <a class="next" href="views.html"><span class="dir">Next</span><span class="ttl">Full-screen views</span></a>
     </div>
   </div>
@@ -304,9 +282,14 @@
 
 <footer>
   <div class="wrap">
-    <p><b>Headless DM</b> — a private AzerothCore realm and the dashboard that reads it.</p>
-    <p>World of Warcraft and Warcraft are trademarks of Blizzard Entertainment. This project is not affiliated with
-    or endorsed by Blizzard, and distributes no Blizzard data.</p>
+    <div class="foot-links">
+      <a href="https://pixelpocalypsegames.com/" target="_blank" rel="noopener">Pixelpocalypse Games</a>
+      <a href="https://discord.com/invite/zpnYXhDs3X" target="_blank" rel="noopener">Discord</a>
+      <a href="https://www.youtube.com/@bazola8654" target="_blank" rel="noopener">YouTube</a>
+    </div>
+    <p>Headless DM — a private AzerothCore realm and the dashboard that reads it.</p>
+    <p>World of Warcraft and Warcraft are trademarks of Blizzard Entertainment. This project is not affiliated
+    with or endorsed by Blizzard, and distributes no Blizzard data.</p>
   </div>
 </footer>
 

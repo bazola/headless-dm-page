@@ -9,12 +9,12 @@ Live at **https://bazola.github.io/headless-dm-page/** once the repository is pu
 
 | Path | What |
 |---|---|
-| `index.html` | Overview: what the project is, and what a running realm measures |
-| `dashboard.html` | The tour — the five regions, the top bar, the map, the inspector, the keyboard |
-| `panels.html` | Reference for all ten panels and every control on them |
+| `index.html` | Overview: what the dashboard is, and how to open it |
+| `dashboard.html` | The interface — five regions, statistics bar, map and legend, inspector, keyboard |
+| `panels.html` | All ten panels and every control, grouped by the question each one answers |
 | `views.html` | The five full-screen archives |
-| `results.html` | Measured counts and examples of what the realm writes on its own |
-| `css/site.css` | The whole stylesheet. It mirrors the dashboard's own design tokens |
+| `results.html` | Data — measured counts, and an example of each kind of record the realm writes |
+| `css/site.css` | The whole stylesheet. Dark only, mirroring the dashboard's own design tokens |
 | `img/` | Screenshots of the live dashboard |
 | `tools/capture.py` | Re-takes every screenshot from a running dashboard |
 

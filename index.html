@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Headless DM</title>
-<meta name="description" content="A private Azeroth where hundreds of playerbots are voiced by language models as people who live there — and the dashboard that lets you read everything they do.">
+<meta name="description" content="The Headless DM dashboard: what it shows, and how to navigate it.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 1.5 30.5 16 16 30.5 1.5 16Z' fill='none' stroke='%23d9a441' stroke-width='2'/%3E%3Cpath d='M16 9.5 18.2 13.8 22.5 16 18.2 18.2 16 22.5 13.8 18.2 9.5 16 13.8 13.8Z' fill='%23d9a441'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,134 +23,79 @@
   </a>
   <div class="nav-links">
     <a href="index.html" class="on">Overview</a>
-    <a href="dashboard.html">Reading the dashboard</a>
-    <a href="panels.html">The ten panels</a>
+    <a href="dashboard.html">The interface</a>
+    <a href="panels.html">Panels</a>
     <a href="views.html">Full-screen views</a>
-    <a href="results.html">Results</a>
+    <a href="results.html">Data</a>
   </div>
 </nav>
 
 <header class="hero">
   <div class="wrap">
-    <div class="eyebrow">A world that keeps going without you</div>
-    <h1>Hundreds of characters who live in Azeroth, and a dashboard that shows you everything they do</h1>
-    <p class="lead">Headless DM is a private World of Warcraft realm where the other players are not scripted bots
-    but people: each with a backstory, a temperament and something they want. They travel, fight, talk to one
-    another, form opinions, join companies, hold grudges and remember what happened to them. Nobody is running
-    the world by hand — hence the name.</p>
-    <p class="lead">This site is the guide to the dashboard: the window onto all of it.</p>
-    <div class="cta-row">
-      <a class="btn btn-primary" href="dashboard.html">Start the tour</a>
-      <a class="btn" href="panels.html">Jump to the panels</a>
-      <a class="btn" href="results.html">See what it produces</a>
-    </div>
+    <h1>The Headless DM dashboard</h1>
+    <p class="lead">Headless DM is a private AzerothCore realm running around 900 playerbots that are driven by
+    language models. They travel, fight, talk, form opinions about each other, join companies and keep memories
+    of what happened to them.</p>
+    <p class="lead">The dashboard is the only window onto that. It is a single web page served by the world
+    server that shows the whole realm live — where everyone is, what they feel, what they have done, and what
+    has been written about it. This site explains how to read it.</p>
   </div>
 </header>
 
 <section>
-  <div class="wrap-wide">
-    <figure>
-      <img src="img/overview.png" alt="The dashboard: a top bar of live statistics, an icon rail on the left, the Roster panel, and a map of Eastern Kingdoms covered in coloured character markers.">
-      <figcaption><b>The dashboard at rest.</b> Live statistics across the top, the panel rail down the left side,
-      the open panel beside it, and the world map filling the middle — every dot is a character who is online right
-      now. <b>Note:</b> the painted world map is turned off in every screenshot on this site, because that artwork
-      comes from the game client and is not ours to publish. On your own realm it is on by default.</figcaption>
-    </figure>
+  <div class="wrap">
+    <h2>Opening it</h2>
+    <p>The world server serves the dashboard itself, on port <code>8787</code>. On the machine running the realm:</p>
+    <p><code>http://127.0.0.1:8787/</code></p>
+    <p>Nothing to install and no login. To reach it from another machine on your own network, the server's
+    <code>Dashboard.Bind</code> setting must include that machine's address.</p>
+    <p>Reading the dashboard needs no password. One thing is protected — pausing and resuming a character — and
+    that needs a token, covered under <a href="panels.html#commands">Commands</a>.</p>
+    <div class="note">
+      <p><b>The realm trusts whoever can reach it.</b> There are no per-user accounts. Anyone who can open the
+      page can read everything on it, so bind it to your own machine or a private network, not the open internet.</p>
+    </div>
   </div>
 </section>
 
 <section>
-  <div class="wrap">
-    <div class="eyebrow">Measured on the live realm</div>
-    <h2>What a running realm looks like</h2>
-    <p>These are real counts from the realm on 22 September 2026, nine days after it was first populated.
-    Nothing here was authored by hand — every tie, memory and chronicle entry was written by the world as it ran.</p>
-    <div class="tiles">
-      <div class="tile"><div class="tile-label">Bots online</div><div class="tile-value">921</div><div class="tile-sub">of 922 characters</div></div>
-      <div class="tile"><div class="tile-label">Ties between people</div><div class="tile-value">104,561</div><div class="tile-sub">who feels what about whom</div></div>
-      <div class="tile"><div class="tile-label">Moments recorded</div><div class="tile-value">37,830</div><div class="tile-sub">18,631 of them today</div></div>
-      <div class="tile"><div class="tile-label">Memories carried</div><div class="tile-value">24,681</div><div class="tile-sub">across 950 characters</div></div>
-      <div class="tile"><div class="tile-label">Journeys written</div><div class="tile-value">964</div><div class="tile-sub">56 places, 26 instances</div></div>
-      <div class="tile"><div class="tile-label">Companies</div><div class="tile-value">20</div><div class="tile-sub">38 lands, 121 relations</div></div>
-      <div class="tile"><div class="tile-label">World update</div><div class="tile-value">7 ms</div><div class="tile-sub">average, at 921 bots</div></div>
-      <div class="tile"><div class="tile-label">Faction scribes</div><div class="tile-value">2</div><div class="tile-sub">writing every watch</div></div>
+  <div class="wrap-wide">
+    <h2>What you are looking at</h2>
+    <figure>
+      <img src="img/overview.png" alt="The dashboard: a statistics bar across the top, an icon rail on the left, the Roster panel, and a map of Eastern Kingdoms covered in coloured character markers.">
+      <figcaption>Live statistics across the top, the panel rail down the left, the open panel beside it, and the
+      world map filling the middle. Every dot is a character online right now.</figcaption>
+    </figure>
+    <div class="note">
+      <p><b>Every map on this site has its art switched off.</b> The painted world map is extracted from the game
+      client and is not ours to publish, so all screenshots here were taken with <b>Layers ▸ Map art</b> off —
+      which leaves zone outlines, zone names, company holdings and live markers on a dark ground. On your own
+      realm the painted map is on by default.</p>
     </div>
   </div>
 </section>
 
 <section>
   <div class="wrap">
-    <h2>What the world does on its own</h2>
+    <h2>The rest of this site</h2>
     <div class="grid grid-2">
-      <div class="card">
-        <h3>They have a past</h3>
-        <p>Every character carries a backstory, a motivation and a turn of speech. It shapes how they talk and
-        what they chase. You can read any of it from the inspector.</p>
-      </div>
-      <div class="card">
-        <h3>They form opinions</h3>
-        <p>Talking to someone — or merely overhearing them — moves how they feel. Every shift is recorded as a
-        moment with a reason attached, and it accumulates into a standing between them.</p>
-      </div>
-      <div class="card">
-        <h3>They remember</h3>
-        <p>Deeds that matter become memories, weighed one to ten, in the character's own words. They survive
-        restarts, and they come back up in conversation.</p>
-      </div>
-      <div class="card">
-        <h3>They belong to something</h3>
-        <p>Companies hold land, keep seats, court new members and feud with each other. Territory on the map is
-        shaded by whoever holds it.</p>
-      </div>
-      <div class="card">
-        <h3>Someone writes it down</h3>
-        <p>Faction scribes compose a chronicle every watch, in period prose, and rumours spread outward from where
-        they started — picking up distortion as they travel.</p>
-      </div>
-      <div class="card">
-        <h3>There is an economy</h3>
-        <p>Merchants stock the auction houses, characters list their own loot, and the market learns what goods
-        actually fetch.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap-wide">
-    <div class="eyebrow">A taste of it</div>
-    <h2>The chronicle writes itself</h2>
-    <figure>
-      <img src="img/full-chronicle.png" alt="The Chronicle reader laid out as a newspaper broadsheet: masthead reading The Alliance Chronicle, a byline, and three columns of prose about events in Gnomeregan, the Badlands and Loch Modan.">
-      <figcaption><b>The Chronicle, full screen.</b> A scribe — here Brother Anselm Marlowe of the Cathedral of
-      Light — writes up each watch from what actually happened in the world that evening. The events are real
-      ledger entries; the prose is his.</figcaption>
-    </figure>
-    <figure>
-      <img src="img/full-groups.png" alt="A grid of group cards, each listing two characters, their level and class, where they are standing, and a transcript of their party chat.">
-      <figcaption><b>Groups, full screen.</b> Thirty-two groups standing together across the world, each card
-      carrying the conversation its members are actually having. None of this dialogue is canned.</figcaption>
-    </figure>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <h2>Find your way around</h2>
-    <div class="grid grid-3">
       <a class="card card-link" href="dashboard.html">
-        <h3>Reading the dashboard</h3>
-        <p>The layout, the top bar, the map, the inspector, and the keyboard shortcuts. Start here.</p>
+        <h3>The interface</h3>
+        <p>The five regions of the screen, the statistics bar, the map and its legend, the inspector, and the
+        keyboard shortcuts.</p>
       </a>
       <a class="card card-link" href="panels.html">
-        <h3>The ten panels</h3>
-        <p>Roster, Feelings, Groups, Companies, Chronicle, Market, Commands, Lore, Memories, Journey — what each
-        one is for and every control on it.</p>
+        <h3>Panels</h3>
+        <p>All ten panels and every control on them, grouped by the question each one answers.</p>
       </a>
       <a class="card card-link" href="views.html">
         <h3>Full-screen views</h3>
-        <p>The five deep archives: every moment, every memory, the group wall, a character's whole journey, and
-        the chronicle reader.</p>
+        <p>The five deep archives behind the panels: every moment, every memory, whole journeys, the group wall
+        and the chronicle reader.</p>
+      </a>
+      <a class="card card-link" href="results.html">
+        <h3>Data</h3>
+        <p>What a running realm accumulates, measured, with examples of each kind of record it writes.</p>
       </a>
     </div>
   </div>
@@ -158,13 +103,16 @@
 
 <footer>
   <div class="wrap">
-    <p><b>Headless DM</b> — a private AzerothCore realm and the dashboard that reads it. The dashboard is titled
-    <i>Living Azeroth</i> in its own top bar; same thing.</p>
-    <p>World of Warcraft and Warcraft are trademarks of Blizzard Entertainment. This project is not affiliated with
-    or endorsed by Blizzard, and distributes no Blizzard data — no client files, no extracted art, no world data.
-    You bring your own client.</p>
-    <p class="muted">Screenshots taken from a live realm on 22 September 2026, with the client-derived map art
-    switched off.</p>
+    <div class="foot-links">
+      <a href="https://pixelpocalypsegames.com/" target="_blank" rel="noopener">Pixelpocalypse Games</a>
+      <a href="https://discord.com/invite/zpnYXhDs3X" target="_blank" rel="noopener">Discord</a>
+      <a href="https://www.youtube.com/@bazola8654" target="_blank" rel="noopener">YouTube</a>
+    </div>
+    <p>Headless DM — a private AzerothCore realm and the dashboard that reads it. The dashboard is titled
+    <i>Living Azeroth</i> in its own top bar.</p>
+    <p>World of Warcraft and Warcraft are trademarks of Blizzard Entertainment. This project is not affiliated
+    with or endorsed by Blizzard, and distributes no Blizzard data — no client files, no extracted art, no world
+    data.</p>
   </div>
 </footer>
 
