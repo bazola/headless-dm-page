@@ -20,7 +20,7 @@ Five sections, in the order the top navigation lists them.
 | `roadmap.html` | **Roadmap** | The three large things not built yet, plus the shorter list behind them |
 | `evidence.html` | **Evidence** | Verbatim transcripts from the live realm, and the dashboard reading the same records |
 | `css/site.css` | — | The whole stylesheet. Dark only, mirroring the dashboard's own design tokens |
-| `img/` | — | Screenshots of the live dashboard |
+| `img/` | — | Screenshots of the live dashboard, plus the brand art below |
 | `tools/capture.py` | — | Re-takes the panel, inspector and map screenshots |
 | `tools/capture-evidence.py` | — | Re-takes the full-screen archive screenshots used on the Evidence page |
 
@@ -29,6 +29,32 @@ section. Adding a page to that section means adding one line to the `.subnav` bl
 
 Plain static HTML. No build step, no framework, no JavaScript of its own. `.nojekyll` is present so GitHub
 Pages serves the files as they are.
+
+## Brand art
+
+The logo and the rider are the operator's own work. The web-ready files in `img/` are derived from the
+originals, which are **not** in this repository (the layered `.pdn` working file least of all):
+
+| File | What | Derived from |
+|---|---|---|
+| `logo.webp` | The wordmark, for the home page hero | `logo-text-v2-crop.png`, 900px wide |
+| `mark-64.png`, `mark-128.png` | The navigation mark, transparent | the wordmark's leading **H** |
+| `favicon-32.png`, `apple-touch-icon.png` | Tab and home-screen icons | the same H, on the site's dark ground |
+| `hero.jpg`, `hero-1200.jpg` | The hero background, wide and narrow | `headless-art-full.png` |
+| `og.jpg` | The 1200x630 social preview | `headless-art-16by9-with-logo.png` |
+
+Two things that were settled by looking rather than assuming, and would be settled the same way again:
+
+- **A detailed illustration does not survive as a favicon.** Crops of the horse's head, and of the
+  spellbook, both turn to mud at 32px. The letter does not, which is why the icon is the **H** and not
+  the rider.
+- **Do not quantise the wordmark to a 256-colour PNG.** It is four times smaller and it destroys the
+  green glow, which is the whole logo. WebP keeps the gradient; the nav mark is small enough that plain
+  PNG is cheap.
+
+The site's accent colour is sampled from the wordmark's own flame — median `#a2eb94`, core `#a8fd96` —
+and lives in the `--brand*` tokens at the top of `css/site.css`. Nothing else in the stylesheet hard-codes
+it, so re-accenting the whole site is an edit to six lines.
 
 ## Re-taking the screenshots
 

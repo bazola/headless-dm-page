@@ -19,12 +19,12 @@
   --ink-2: #aab3c2;
   --ink-3: #6f7a8c;
 
-  --gold: #d9a441;
-  --gold-hi: #f6d992;
-  --gold-text: #f0c872;
-  --gold-ink: #1b1306;
-  --gold-wash: rgba(232, 184, 90, .12);
-  --gold-line: rgba(232, 184, 90, .38);
+  --brand: #7ddc6a;
+  --brand-hi: #a8fd96;
+  --brand-text: #9be88b;
+  --brand-ink: #0c1508;
+  --brand-wash: rgba(138, 235, 130, .12);
+  --brand-line: rgba(138, 235, 130, .38);
 
   --warm: #3ecf8e;
   --cold: #ff6b6b;
@@ -62,8 +62,8 @@ body {
 
 img { max-width: 100%; }
 
-a { color: var(--gold-text); text-decoration-color: var(--gold-line); text-underline-offset: 2px; }
-a:hover { color: var(--gold-hi); }
+a { color: var(--brand-text); text-decoration-color: var(--brand-line); text-underline-offset: 2px; }
+a:hover { color: var(--brand-hi); }
 
 code, kbd { font-family: var(--font-mono); font-size: .88em; }
 code {
@@ -111,7 +111,7 @@ kbd {
   color: var(--ink);
   text-decoration: none;
 }
-.nav-brand:hover { color: var(--gold-hi); }
+.nav-brand:hover { color: var(--brand-hi); }
 .nav-links { display: flex; gap: 4px; flex-wrap: wrap; margin-left: auto; }
 .nav-links a {
   padding: 6px 12px;
@@ -122,7 +122,7 @@ kbd {
   text-decoration: none;
 }
 .nav-links a:hover { background: var(--bg-3); color: var(--ink); }
-.nav-links a.on { background: var(--gold-wash); color: var(--gold-text); }
+.nav-links a.on { background: var(--brand-wash); color: var(--brand-text); }
 
 /* ---- Layout ---- */
 
@@ -147,7 +147,7 @@ p.lead { font-size: 17px; color: var(--ink); max-width: 68ch; }
   font-weight: 600;
   letter-spacing: .17em;
   text-transform: uppercase;
-  color: var(--gold-text);
+  color: var(--brand-text);
   margin-bottom: 10px;
 }
 .muted { color: var(--ink-3); }
@@ -156,7 +156,7 @@ p.lead { font-size: 17px; color: var(--ink); max-width: 68ch; }
 
 .hero {
   padding-block: 52px 40px;
-  background: radial-gradient(760px 340px at 12% -20%, rgba(232, 184, 90, .07), transparent 62%);
+  background: radial-gradient(760px 340px at 12% -20%, rgba(138, 235, 130, .07), transparent 62%);
   border-bottom: 1px solid var(--line-2);
 }
 .hero h1 { max-width: 26ch; }
@@ -197,7 +197,7 @@ figcaption b { color: var(--ink-2); font-weight: 600; }
 .card h3 { margin-bottom: .35em; font-size: 18px; }
 .card p:last-child { margin-bottom: 0; }
 .card-link { text-decoration: none; display: block; }
-.card-link:hover { border-color: var(--gold-line); background: var(--bg-3); }
+.card-link:hover { border-color: var(--brand-line); background: var(--bg-3); }
 
 /* ---- Stat tiles ---- */
 
@@ -252,15 +252,15 @@ td code, th code { white-space: nowrap; }
 /* ---- Callouts ---- */
 
 .note {
-  border-left: 3px solid var(--gold);
-  background: var(--gold-wash);
+  border-left: 3px solid var(--brand);
+  background: var(--brand-wash);
   border-radius: 0 var(--radius) var(--radius) 0;
   padding: 14px 18px;
   margin: 22px 0;
   font-size: 14.5px;
 }
 .note p:last-child { margin-bottom: 0; }
-.note b { color: var(--gold-text); }
+.note b { color: var(--brand-text); }
 
 /* ---- Legend dots, matching the map ---- */
 
@@ -321,9 +321,9 @@ ol.steps > li::before {
   display: grid;
   place-items: center;
   border-radius: 50%;
-  background: var(--gold-wash);
-  border: 1px solid var(--gold-line);
-  color: var(--gold-text);
+  background: var(--brand-wash);
+  border: 1px solid var(--brand-line);
+  color: var(--brand-text);
   font-weight: 700;
   font-size: 13.5px;
   font-family: var(--font-ui);
@@ -346,7 +346,7 @@ ul.plain > li::before {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: var(--gold);
+  background: var(--brand);
 }
 ul.plain > li b { color: var(--ink); }
 
@@ -361,7 +361,7 @@ ul.plain > li b { color: var(--ink); }
   padding: 14px 18px;
   text-decoration: none;
 }
-.pager a:hover { border-color: var(--gold-line); background: var(--bg-3); }
+.pager a:hover { border-color: var(--brand-line); background: var(--bg-3); }
 .pager .dir {
   display: block;
   font-size: 10.5px;
@@ -411,8 +411,11 @@ ul.plain > li b { color: var(--ink); }
   margin-bottom: -1px;
 }
 .subnav a:hover { color: var(--ink); }
-.subnav a.on { color: var(--gold-text); border-bottom-color: var(--gold); }
+.subnav a.on { color: var(--brand-text); border-bottom-color: var(--brand); }
 @media (max-width: 620px) { .subnav { position: static; } }
+
+/* The brand mark, beside the wordmark in the navigation. */
+.nav-mark { display: block; flex: none; }
 
 /* ---- Landing hero ---- */
 
@@ -420,16 +423,46 @@ ul.plain > li b { color: var(--ink); }
   padding-block: 76px 60px;
   border-bottom: 1px solid var(--line-2);
   background:
-    radial-gradient(900px 420px at 15% -25%, rgba(232, 184, 90, .10), transparent 64%),
+    radial-gradient(900px 420px at 15% -25%, rgba(138, 235, 130, .10), transparent 64%),
     radial-gradient(700px 360px at 92% 8%, rgba(91, 147, 255, .07), transparent 62%);
 }
+/* The home page's hero carries the art itself. The gradient is heavy on the left, where the
+   words are, and lets the rider through on the right -- at narrow widths the text sits over the
+   picture, so the wash has to hold there too. */
+.hero-art {
+  background:
+    linear-gradient(100deg, rgba(7, 9, 13, .97) 0%, rgba(7, 9, 13, .93) 38%, rgba(7, 9, 13, .62) 72%, rgba(7, 9, 13, .38) 100%),
+    url("../img/hero-1200.jpg") center right / cover no-repeat;
+}
+@media (min-width: 1280px) {
+  .hero-art {
+    background:
+      linear-gradient(100deg, rgba(7, 9, 13, .97) 0%, rgba(7, 9, 13, .92) 40%, rgba(7, 9, 13, .55) 74%, rgba(7, 9, 13, .3) 100%),
+      url("../img/hero.jpg") center right / cover no-repeat;
+  }
+}
+@media (max-width: 720px) {
+  .hero-art {
+    background:
+      linear-gradient(180deg, rgba(7, 9, 13, .9) 0%, rgba(7, 9, 13, .95) 60%),
+      url("../img/hero-1200.jpg") center / cover no-repeat;
+  }
+}
+
+.hero-logo {
+  display: block;
+  width: min(400px, 78%);
+  height: auto;
+  margin: 0 0 22px -6px;   /* the wordmark's own glow carries a little padding of its own */
+}
+
 .hero-home h1 {
   font-size: clamp(34px, 6.4vw, 62px);
   line-height: 1.04;
   max-width: 17ch;
   margin-bottom: .34em;
 }
-.hero-home h1 em { font-style: normal; color: var(--gold-text); }
+.hero-home h1 em { font-style: normal; color: var(--brand-text); }
 .hero-home .lead { font-size: 18.5px; max-width: 64ch; }
 
 .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 30px; }
@@ -446,17 +479,17 @@ ul.plain > li b { color: var(--ink); }
   background: var(--bg-2);
   color: var(--ink);
 }
-.btn:hover { border-color: var(--gold-line); background: var(--bg-3); color: var(--gold-hi); }
-.btn-gold {
-  background: var(--gold);
-  border-color: var(--gold);
-  color: var(--gold-ink);
+.btn:hover { border-color: var(--brand-line); background: var(--bg-3); color: var(--brand-hi); }
+.btn-brand {
+  background: var(--brand);
+  border-color: var(--brand);
+  color: var(--brand-ink);
 }
-.btn-gold:hover { background: var(--gold-hi); border-color: var(--gold-hi); color: var(--gold-ink); }
+.btn-brand:hover { background: var(--brand-hi); border-color: var(--brand-hi); color: var(--brand-ink); }
 
-/* The source link: second in weight only to the gold call to action. */
+/* The source link: second in weight only to the brand call to action. */
 .btn-code { background: var(--bg-3); border-color: var(--line-3); color: var(--ink); }
-.btn-code:hover { background: var(--bg-4); border-color: var(--gold-line); color: var(--gold-hi); }
+.btn-code:hover { background: var(--bg-4); border-color: var(--brand-line); color: var(--brand-hi); }
 .btn svg { flex: none; }
 
 /* ---- Status pills ---- */
@@ -484,7 +517,7 @@ ul.plain > li b { color: var(--ink); }
   background: currentColor;
 }
 .pill-live { color: var(--warm); border-color: rgba(62, 207, 142, .35); background: rgba(62, 207, 142, .09); }
-.pill-planned { color: var(--gold-text); border-color: var(--gold-line); background: var(--gold-wash); }
+.pill-planned { color: var(--brand-text); border-color: var(--brand-line); background: var(--brand-wash); }
 .pill-idea { color: var(--ink-3); }
 
 /* ---- Feature chapters (the Features page) ---- */
@@ -517,7 +550,7 @@ ul.plain > li b { color: var(--ink); }
 .road-card {
   background: var(--bg-2);
   border: 1px solid var(--line);
-  border-left: 3px solid var(--gold);
+  border-left: 3px solid var(--brand);
   border-radius: 0 var(--radius-l) var(--radius-l) 0;
   padding: 26px 28px;
 }
@@ -532,7 +565,7 @@ ul.plain > li b { color: var(--ink); }
 .road-num {
   font-family: var(--font-mono);
   font-size: 12px;
-  color: var(--gold-text);
+  color: var(--brand-text);
   letter-spacing: .12em;
 }
 .road-card .promise {
@@ -579,7 +612,7 @@ ul.plain > li b { color: var(--ink); }
   margin: 0 0 26px;
 }
 .ex-key {
-  border-left: 2px solid var(--gold);
+  border-left: 2px solid var(--brand);
   background: var(--bg-2);
   border-radius: 0 var(--radius) var(--radius) 0;
   padding: 18px 22px;
@@ -618,9 +651,9 @@ ul.plain > li b { color: var(--ink); }
   line-height: 1.5;
   color: var(--ink-2);
 }
-.said-player .nm { color: var(--gold-text); }
+.said-player .nm { color: var(--brand-text); }
 .said-player q { color: var(--ink); }
-.said q b { color: var(--gold-hi); font-weight: 500; }
+.said q b { color: var(--brand-hi); font-weight: 500; }
 @media (max-width: 620px) {
   .said { grid-template-columns: minmax(0, 1fr); gap: 2px; }
   .said .nm { text-align: left; }
@@ -753,5 +786,5 @@ footer p { color: var(--ink-3); margin-bottom: .5em; max-width: 90ch; }
   font-size: 14px;
   text-decoration: none;
 }
-.foot-links a:hover { border-color: var(--gold-line); background: var(--bg-3); color: var(--gold-hi); }
+.foot-links a:hover { border-color: var(--brand-line); background: var(--bg-3); color: var(--brand-hi); }
 .foot-links svg { flex: none; }
