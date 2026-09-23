@@ -9,15 +9,28 @@ Usage:  python3 tools/shoot-site.py [index dashboard panels views results] [--wi
 import base64
 import json
 import os
+import shutil
+import socket
 import subprocess
 import sys
+import tempfile
 import time
+import urllib.error
 import urllib.request
 
-PORT = 4458
+# Chosen at startup. A fixed port looks harmless until a geckodriver from an earlier run is still
+# listening on it: the readiness probe below then succeeds against *that* driver, and the session we
+# ask it for fails with an opaque 500 that looks like a page problem and is not one.
+PORT = 0
 ROOT = os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
 OUT = os.environ.get("OUT_DIR", os.path.join(ROOT, "..", "site-check"))
-PAGES = ["index", "dashboard", "panels", "views", "results"]
+PAGES = ["index", "features", "dashboard", "panels", "views", "results", "roadmap", "evidence"]
+
+
+def free_port():
+    with socket.socket() as s:
+        s.bind(("127.0.0.1", 0))
+        return s.getsockname()[1]
 
 
 def call(method, path, body=None):
@@ -25,19 +38,37 @@ def call(method, path, body=None):
         f"http://127.0.0.1:{PORT}{path}", method=method,
         data=json.dumps(body).encode() if body is not None else None,
         headers={"Content-Type": "application/json"})
-    return json.load(urllib.request.urlopen(req, timeout=180))
+    try:
+        return json.load(urllib.request.urlopen(req, timeout=180))
+    except urllib.error.HTTPError as e:
+        # geckodriver explains itself in the body; without this the traceback says only "500".
+        raise RuntimeError(f"{method} {path} -> {e.code}: {e.read().decode(errors='replace')[:400]}") from None
 
 
 def main():
-    args = [a for a in sys.argv[1:] if not a.startswith("--")]
+    # Take the flag and its value out together. Dropping only the "--width" and keeping the "1280"
+    # left the width as a page name, and the run died trying to open 1280.html.
+    argv = sys.argv[1:]
     width = 1280
-    if "--width" in sys.argv:
-        width = int(sys.argv[sys.argv.index("--width") + 1])
-    pages = args or PAGES
+    if "--width" in argv:
+        i = argv.index("--width")
+        width = int(argv[i + 1])
+        del argv[i:i + 2]
+    pages = argv or PAGES
+
+    unknown = [p for p in pages if not os.path.isfile(os.path.join(ROOT, p + ".html"))]
+    if unknown:
+        sys.exit(f"no such page(s): {', '.join(unknown)}\nknown pages: {', '.join(PAGES)}")
     os.makedirs(OUT, exist_ok=True)
 
-    profiles = os.path.expanduser("~/snap/firefox/common/geckodriver-profiles")
-    os.makedirs(profiles, exist_ok=True)
+    global PORT
+    PORT = free_port()
+
+    # A profile directory of this run's own, so a Firefox left behind by an earlier run cannot
+    # hold the one we are about to use.
+    root = os.path.expanduser("~/snap/firefox/common/geckodriver-profiles")
+    os.makedirs(root, exist_ok=True)
+    profiles = tempfile.mkdtemp(prefix="shoot-site-", dir=root)
     drv = subprocess.Popen(["/snap/bin/geckodriver", "--port", str(PORT), "--profile-root", profiles],
                            stdin=subprocess.DEVNULL, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     try:
@@ -54,15 +85,20 @@ def main():
             src = os.path.join(ROOT, name + ".html")
             call("POST", f"/session/{sid}/url", {"url": "file://" + src})
             time.sleep(3)   # web fonts
-            # Grow the window to the document so the whole page lands in one frame.
             h = call("POST", f"/session/{sid}/execute/sync",
                      {"script": "return document.documentElement.scrollHeight", "args": []})["value"]
-            call("POST", f"/session/{sid}/window/rect", {"width": width, "height": min(int(h) + 120, 16000)})
-            time.sleep(2)
             broken = call("POST", f"/session/{sid}/execute/sync", {"script": """
                 return [...document.images].filter(i => !i.complete || i.naturalWidth === 0)
                                            .map(i => i.getAttribute('src'));""", "args": []})["value"]
-            png = call("GET", f"/session/{sid}/screenshot")["value"]
+            # Firefox will screenshot the whole document in one frame. Growing the window to the page
+            # instead is what the earlier version did, and geckodriver answers 500 to a window that
+            # tall -- features and evidence both run well past 8,000px, so every long page failed.
+            try:
+                png = call("GET", f"/session/{sid}/moz/screenshot/full")["value"]
+            except urllib.error.HTTPError:
+                call("POST", f"/session/{sid}/window/rect", {"width": width, "height": min(int(h) + 120, 8000)})
+                time.sleep(2)
+                png = call("GET", f"/session/{sid}/screenshot")["value"]
             path = os.path.join(OUT, name + ".png")
             with open(path, "wb") as f:
                 f.write(base64.b64decode(png))
@@ -71,6 +107,11 @@ def main():
         call("DELETE", f"/session/{sid}")
     finally:
         drv.terminate()
+        try:
+            drv.wait(timeout=10)
+        except subprocess.TimeoutExpired:
+            drv.kill()
+        shutil.rmtree(profiles, ignore_errors=True)
 
 
 if __name__ == "__main__":

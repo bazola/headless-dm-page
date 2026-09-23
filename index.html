@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Headless DM</title>
-<meta name="description" content="The Headless DM dashboard: what it shows, and how to navigate it.">
+<meta name="description" content="A private AzerothCore realm where 950 playerbots live as people: written pasts, lasting feelings, companies at war, and news that changes as it travels.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 1.5 30.5 16 16 30.5 1.5 16Z' fill='none' stroke='%23d9a441' stroke-width='2'/%3E%3Cpath d='M16 9.5 18.2 13.8 22.5 16 18.2 18.2 16 22.5 13.8 18.2 9.5 16 13.8 13.8Z' fill='%23d9a441'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,49 +22,79 @@
     Headless DM
   </a>
   <div class="nav-links">
-    <a href="index.html" class="on">Overview</a>
-    <a href="dashboard.html">The interface</a>
-    <a href="panels.html">Panels</a>
-    <a href="views.html">Full-screen views</a>
-    <a href="results.html">Data</a>
+    <a href="index.html" class="on">Home</a>
+    <a href="features.html">Features</a>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="roadmap.html">Roadmap</a>
+    <a href="evidence.html">Evidence</a>
   </div>
 </nav>
 
-<header class="hero">
+<header class="hero-home">
   <div class="wrap">
-    <h1>The Headless DM dashboard</h1>
-    <p class="lead">Headless DM is a private AzerothCore realm running around 900 playerbots that are driven by
-    language models. They travel, fight, talk, form opinions about each other, join companies and keep memories
-    of what happened to them.</p>
-    <p class="lead">The dashboard is the only window onto that. It is a single web page served by the world
-    server that shows the whole realm live — where everyone is, what they feel, what they have done, and what
-    has been written about it. This site explains how to read it.</p>
+    <p class="eyebrow">A World of Warcraft 3.3.5a realm · Classic era</p>
+    <h1>The bots already played. <em>Now they live.</em></h1>
+    <p class="lead">Headless DM is a private AzerothCore realm where around <b>950 characters</b> are voiced by
+    language models as people who live in Azeroth. They have written pasts and a trade. They remember what
+    happened to them and how they feel about everyone they have met. Their companies hold land and lose it.
+    News of what they did travels the roads, and changes on the way.</p>
+    <p class="lead">Every word of it is generated on machines in one house. There is no cloud service and no
+    per-message bill.</p>
+    <div class="cta-row">
+      <a class="btn btn-gold" href="features.html">See what it does</a>
+      <a class="btn" href="evidence.html">Read the evidence</a>
+      <a class="btn" href="dashboard.html">Tour the dashboard</a>
+    </div>
   </div>
 </header>
 
 <section>
   <div class="wrap">
-    <h2>Opening it</h2>
-    <p>The world server serves the dashboard itself, on port <code>8787</code>. On the machine running the realm:</p>
-    <p><code>http://127.0.0.1:8787/</code></p>
-    <p>Nothing to install and no login. To reach it from another machine on your own network, the server's
-    <code>Dashboard.Bind</code> setting must include that machine's address.</p>
-    <p>Reading the dashboard needs no password. One thing is protected — pausing and resuming a character — and
-    that needs a token, covered under <a href="panels.html#commands">Commands</a>.</p>
-    <div class="note">
-      <p><b>The realm trusts whoever can reach it.</b> There are no per-user accounts. Anyone who can open the
-      page can read everything on it, so bind it to your own machine or a private network, not the open internet.</p>
+    <h2>The realm as it stands today</h2>
+    <p>Every figure below was read from the live realm on <b>23 September 2026</b>, ten days after it was first
+    populated. They grow for as long as it runs.</p>
+    <div class="tiles">
+      <div class="tile"><div class="tile-label">Written lives</div><div class="tile-value">1,283</div><div class="tile-sub">each with a past, a trade and a goal</div></div>
+      <div class="tile"><div class="tile-label">Feelings held</div><div class="tile-value">104,391</div><div class="tile-sub">between people who have met</div></div>
+      <div class="tile"><div class="tile-label">Moments</div><div class="tile-value">41,810</div><div class="tile-sub">each with the reason for it</div></div>
+      <div class="tile"><div class="tile-label">Memories kept</div><div class="tile-value">36,376</div><div class="tile-sub">in the words of who carries them</div></div>
+      <div class="tile"><div class="tile-label">Conversations overheard</div><div class="tile-value">1,976</div><div class="tile-sub">between bots, no player present</div></div>
+      <div class="tile"><div class="tile-label">Companies</div><div class="tile-value">20</div><div class="tile-sub">38 lands held or contested</div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>What makes it different</h2>
+    <div class="grid grid-3">
+      <div class="card">
+        <h3>They have a past</h3>
+        <p>Not a personality type. A written life — where they came from, what they lost, what they are after,
+        and the trade they work at. It shapes every line they speak.</p>
+      </div>
+      <div class="card">
+        <h3>They hold a position</h3>
+        <p>A companion who refuses your gift refuses it again an hour later, for the same reason, in the same
+        voice. They say no to the player, and mean it.</p>
+      </div>
+      <div class="card">
+        <h3>The world runs without you</h3>
+        <p>Companies take land while you sleep. Strangers talk to each other in Felwood. Scribes write the
+        evening up, and the story is wrong by the time it reaches Ironforge.</p>
+      </div>
     </div>
   </div>
 </section>
 
 <section>
   <div class="wrap-wide">
-    <h2>What you are looking at</h2>
+    <h2>One window onto all of it</h2>
     <figure>
       <img src="img/overview.png" alt="The dashboard: a statistics bar across the top, an icon rail on the left, the Roster panel, and a map of Eastern Kingdoms covered in coloured character markers.">
-      <figcaption>Live statistics across the top, the panel rail down the left, the open panel beside it, and the
-      world map filling the middle. Every dot is a character online right now.</figcaption>
+      <figcaption>The dashboard is served by the world server itself on port <code>8787</code>. Live statistics
+      across the top, ten panels on the rail, and the world map in the middle — every dot a character online
+      right now. <a href="dashboard.html">How to read it →</a></figcaption>
     </figure>
     <div class="note">
       <p><b>Every map on this site has its art switched off.</b> The painted world map is extracted from the game
@@ -77,25 +107,27 @@
 
 <section>
   <div class="wrap">
-    <h2>The rest of this site</h2>
+    <h2>Where to go next</h2>
     <div class="grid grid-2">
+      <a class="card card-link" href="features.html">
+        <h3>Features</h3>
+        <p>Everything that is built and running: written lives, lasting feelings, companies at war, news that
+        drifts, memory, journeys and the market.</p>
+      </a>
       <a class="card card-link" href="dashboard.html">
-        <h3>The interface</h3>
-        <p>The five regions of the screen, the statistics bar, the map and its legend, the inspector, and the
-        keyboard shortcuts.</p>
+        <h3>Dashboard</h3>
+        <p>The interface in full — the five regions, all ten panels, the five deep archives, and what a running
+        realm accumulates.</p>
       </a>
-      <a class="card card-link" href="panels.html">
-        <h3>Panels</h3>
-        <p>All ten panels and every control on them, grouped by the question each one answers.</p>
+      <a class="card card-link" href="roadmap.html">
+        <h3>Roadmap</h3>
+        <p>The three large things not built yet: a reputation you have to earn, a Dungeon Master that judges
+        goals, and townsfolk as alive as the bots.</p>
       </a>
-      <a class="card card-link" href="views.html">
-        <h3>Full-screen views</h3>
-        <p>The five deep archives behind the panels: every moment, every memory, whole journeys, the group wall
-        and the chronicle reader.</p>
-      </a>
-      <a class="card card-link" href="results.html">
-        <h3>Data</h3>
-        <p>What a running realm accumulates, measured, with examples of each kind of record it writes.</p>
+      <a class="card card-link" href="evidence.html">
+        <h3>Evidence</h3>
+        <p>Transcripts, verbatim. A dwarf tries to sing, and is told he sings like a drunkard at a wake —
+        twice, ninety minutes apart.</p>
       </a>
     </div>
   </div>

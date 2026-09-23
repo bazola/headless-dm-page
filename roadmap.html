@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Roadmap · Headless DM</title>
+<meta name="description" content="What Headless DM is building next: a reputation you have to earn, a Dungeon Master that judges whether a goal is done, and townsfolk as alive as the bots.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 1.5 30.5 16 16 30.5 1.5 16Z' fill='none' stroke='%23d9a441' stroke-width='2'/%3E%3Cpath d='M16 9.5 18.2 13.8 22.5 16 18.2 18.2 16 22.5 13.8 18.2 9.5 16 13.8 13.8Z' fill='%23d9a441'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Spectral:ital,wght@0,400;0,500;1,400&display=swap">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+
+<nav class="nav">
+  <a class="nav-brand" href="index.html">
+    <svg width="24" height="24" viewBox="0 0 32 32" aria-hidden="true">
+      <path d="M16 1.5 30.5 16 16 30.5 1.5 16Z" fill="none" stroke="#d9a441" stroke-width="1.6"/>
+      <path d="M16 9.5 18.2 13.8 22.5 16 18.2 18.2 16 22.5 13.8 18.2 9.5 16 13.8 13.8Z" fill="#d9a441"/>
+    </svg>
+    Headless DM
+  </a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="features.html">Features</a>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="roadmap.html" class="on">Roadmap</a>
+    <a href="evidence.html">Evidence</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Designed, not yet built</p>
+    <h1>What the world is missing</h1>
+    <p class="lead">Everything on the <a href="features.html">Features</a> page is running on the realm now.
+    These three are not. Each is designed far enough to know what it would take, and each answers something
+    the world visibly lacks — measured, not guessed.</p>
+    <p class="lead muted">The realm is ten days old and the list of what it could be keeps growing faster than
+    the list of what it is. That is the honest state of it.</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap-wide">
+    <div class="road">
+
+      <article class="road-card">
+        <header>
+          <span class="road-num">01</span>
+          <h3>A reputation you have to earn</h3>
+          <span class="pill pill-planned">Designed</span>
+        </header>
+        <p class="promise">Bots look up to you only when you have done things they have not.</p>
+        <p>Today a character's opinion of you is <b>regard</b> — how <em>they</em> feel, built from what passed
+        between the two of you. Renown is the other half: <b>what the world has heard about you</b>, whether or
+        not it was there.</p>
+        <p>The interesting constraint is the one that inverts the usual treatment. A renown score is not global.
+        It is <b>relative to whoever is reading it</b> — so a level 60 veteran who has cleared Molten Core is
+        entirely unimpressed by your Molten Core clear, while a level 12 farmhand in Westfall is not. Nobody gets
+        told they are a hero by a world that has done more than they have.</p>
+        <div class="road-grid">
+          <div>
+            <h4>What it would add</h4>
+            <p>Deeds earn it — a first dungeon cleared, a rare beast felled. It stays <b>scarce</b>, so it keeps meaning something.</p>
+          </div>
+          <div>
+            <h4>Two ways it spreads</h4>
+            <p><b>Rumour</b>, which garbles it, and <b>presence</b> — a bot who was standing there remembers it first-hand and does not get it wrong.</p>
+          </div>
+          <div>
+            <h4>What exists to build on</h4>
+            <p>The rumour network already carries deeds between towns, and the ledger already records every deed worth carrying.</p>
+          </div>
+          <div>
+            <h4>The open question</h4>
+            <p>Whether it becomes its own system or a fifth tier of the feelings service it overlaps with.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="road-card">
+        <header>
+          <span class="road-num">02</span>
+          <h3>The Dungeon Master</h3>
+          <span class="pill pill-planned">Designed</span>
+        </header>
+        <p class="promise">A standing judgement of whether a life's goal has moved — and what that person
+        lives for once it is done.</p>
+        <p>Every character already has a goal. The trouble is that almost none of them can be <em>finished</em>
+        by any mechanism. Of 1,283 characters, <b>52 want to kill something</b> — and not one of those foes is
+        killable, because 42 of them are "the Scourge". Meanwhile <b>672 live for faith, protection, redemption
+        or belonging</b>, which no trigger can observe at all.</p>
+        <p>So the Dungeon Master is not a trigger. It is a <b>reading</b>: at a slow cadence it asks, of one
+        character, <i>given what this person has done, said, felt and been said about since I last looked —
+        where does their goal stand, and did anyone else's hand move it?</i></p>
+        <div class="road-grid">
+          <div>
+            <h4>A verdict is not binary</h4>
+            <p><b>untouched · stirring · moved · fulfilled · unreachable.</b> A goal that can never be completed is read for movement forever — that is who they are, not a gap.</p>
+          </div>
+          <div>
+            <h4>The player's hand, credited</h4>
+            <p>The judge can name <b>what you did</b> to move someone else's life along. That is what makes it worth building rather than a simulation running to itself.</p>
+          </div>
+          <div>
+            <h4>A finished goal changes them</h4>
+            <p>On fulfilment the same verdict proposes what they now live for — <b>a new chapter, not a rewrite</b> — and the world can see that it happened.</p>
+          </div>
+          <div>
+            <h4>Why it is affordable</h4>
+            <p>Gathering is free, and most characters have no new evidence on most days. A cheap model decides whether the expensive one is worth asking — the pattern already proven elsewhere.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="road-card">
+        <header>
+          <span class="road-num">03</span>
+          <h3>Townsfolk as alive as the bots</h3>
+          <span class="pill pill-planned">Designed</span>
+        </header>
+        <p class="promise">The people standing in the cities get what the travelling characters already have:
+        a routine, a story, ties and a family.</p>
+        <p>Stormwind holds <b>665 people</b> — 116 vendors, 50 trainers, 37 guards and <b>130 plain
+        townsfolk</b> who, today, stand in one spot all day and say a fixed line. Ironforge has 507 of them,
+        Orgrimmar 608. The chairs they could sit in and the forges they could work at are <b>already in the
+        world data</b>: 403 seats in Stormwind, 232 fires in Orgrimmar.</p>
+        <p>The constraint that shapes the whole thing: <b>no new art, ever.</b> No new models, textures, sounds
+        or client patches. Anything a <em>person</em> could do is available; anything needing a new picture is
+        not. That turns out to leave a great deal — walking, working, talking, leaving, arriving, and being
+        seen doing it.</p>
+        <div class="road-grid">
+          <div>
+            <h4>Routines and errands</h4>
+            <p>Shops that <b>close at night</b>, keepers who go home, a needed thing that actually runs out and has to be fetched.</p>
+          </div>
+          <div>
+            <h4>Speech, memory and ties</h4>
+            <p>Townsfolk answering from a model rather than a fixed line — and, like the bots, <b>remembering who passed through</b>.</p>
+          </div>
+          <div>
+            <h4>Scenes, and witnesses</h4>
+            <p>Processions, criers, a king who travels. Bots who see one <b>remember it once</b> and pass it on as rumour, through the network that already exists.</p>
+          </div>
+          <div>
+            <h4>A director that paces the day</h4>
+            <p>Not a script. A service that reads the world, draws from a catalogue of small happenings and decides what the city needs this hour.</p>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="road-more">
+      <h3>Also on the list</h3>
+      <p class="muted">Smaller, and each already written down somewhere. This page grows.</p>
+      <ul>
+        <li><b>Professions that are true</b> — a character whose trade is smithing can actually smith.</li>
+        <li><b>Dungeon runs without you</b> — bots clear an instance, roll on the loot and wear it.</li>
+        <li><b>Letters in the post</b> — mail written by the character who sent it.</li>
+        <li><b>Knowing where they are</b> — the trees, the ridgelines and what hunts in this zone.</li>
+        <li><b>Seeded mysteries</b> — a tale planted on purpose that takes hold of whoever hears it.</li>
+        <li><b>A far-travelled tale becomes a quest</b> — rumour hardens into something you can go and do.</li>
+        <li><b>Companions of the road</b> — the people you came to know level alongside you.</li>
+        <li><b>Company goals</b> — a company decides on something in guild chat and goes and does it.</li>
+        <li><b>Gifts that land</b> — a traded item moves how someone feels about you.</li>
+        <li><b>A thousand characters and beyond</b> — in measured steps, checking responsiveness at each.</li>
+        <li><b>The next eras</b> — Onyxia, Blackwing Lair, Zul'Gurub and Ahn'Qiraj, then the Dark Portal.</li>
+        <li><b>A public release</b> — an open repository and a setup guide written so your own coding assistant can build the realm with you.</li>
+      </ul>
+    </div>
+    <div class="pager">
+      <a href="features.html"><span class="dir">Back</span><span class="ttl">Features</span></a>
+      <a class="next" href="evidence.html"><span class="dir">Next</span><span class="ttl">Evidence</span></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-links">
+      <a href="https://pixelpocalypsegames.com/" target="_blank" rel="noopener">Pixelpocalypse Games</a>
+      <a href="https://discord.com/invite/zpnYXhDs3X" target="_blank" rel="noopener">Discord</a>
+      <a href="https://www.youtube.com/@bazola8654" target="_blank" rel="noopener">YouTube</a>
+    </div>
+    <p>Nothing on this page is running yet. Counts quoted are measurements taken from the live realm while these
+    were being designed.</p>
+    <p>World of Warcraft and Warcraft are trademarks of Blizzard Entertainment. This project is not affiliated
+    with or endorsed by Blizzard, and distributes no Blizzard data.</p>
+  </div>
+</footer>
+
+</body>
+</html>
